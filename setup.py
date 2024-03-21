@@ -24,7 +24,7 @@ setup(
     long_description_content_type="text/markdown",
     author="zqj",
     author_email="zzz9958123@qq.com",
-    url="http://192.168.0.42:81/zqj/model_format_converter",
+    url="https://github.com/zhangqijun/model_format_converter",
     license="MIT License",
     packages=find_packages(exclude=['test*','json_samples']),
     platforms=["linux", "unix"],

@@ -6,9 +6,10 @@ from utils.pytorch_converter import pytorch_to_onnx, onnx_to_pytorch
 
 
 def parse_args():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--model', '-m', type=str, help='输入的模型文件路径', required=True)
-    parser.add_argument('--model_convert_type', '-t', type=str,
+    parser = argparse.ArgumentParser(
+        description='Self-Created Tools to convert deeplearning files from tf,pytorch,onnx,paddle to eachothers. The purpose of this tool is to solve the massive Transpose extrapolation problem in deeplearning models.')
+    parser.add_argument('-m', '--model', type=str, help='输入的模型文件路径', required=True)
+    parser.add_argument('-t', '--model_convert_type', type=str,
                         choices=['tf2onnx', 'onnx2tf', 'pytorch2onnx', 'onnx2pytorch', 'paddle2onnx', 'onnx2paddle'],
                         help='转换的类型，可选为tf2onnx onnx2tf pytorch2onnx onnx2pytorch paddle2onnx onnx2paddle',
                         required=True)
@@ -21,9 +22,9 @@ def main():
     if args.model_convert_type == 'tf2onnx':
         tf_to_onnx(args.model)
     elif args.model_convert_type == 'onnx2tf':
-        onnx_to_tf(args)
+        onnx_to_tf(args.model)
     elif args.model_convert_type == 'pytorch2onnx':
-        onnx_to_pytorch(args.model)
+        pytorch_to_onnx(args.model)
     elif args.model_convert_type == 'onnx2pytorch':
         onnx_to_pytorch(args.model)
     elif args.model_convert_type == 'paddle2onnx':
