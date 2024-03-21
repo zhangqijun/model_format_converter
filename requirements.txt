@@ -1,0 +1,7 @@
+torch
+paddlepaddle
+tensorflow
+tf2onnx
+onnx2tf
+onnx2pytorch
+x2paddle
