@@ -12,7 +12,7 @@ import os
 def tf_to_onnx(tf_model_path):
     # convert()
 
-    onnx_file_name = os.path.splitext(tf_model_path)[0] + '.onnx'
+    onnx_file_name = tf_model_path + '.onnx'
     tflitemodelpath = os.path.join(tf_model_path, 'model_float32.tflite')
     os.system(f'python3 -m tf2onnx.convert --tflite {tflitemodelpath} --output {onnx_file_name}')
     print('ONNX model saved to {}'.format(onnx_file_name))
