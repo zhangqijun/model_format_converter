@@ -1,6 +1,6 @@
 import argparse
 
-from utils.tf_converter import tf_to_onnx, onnx_to_tf
+
 from utils.paddle_converter import paddle_to_onnx, onnx_to_paddle
 from utils.pytorch_converter import pytorch_to_onnx, onnx_to_pytorch
 
@@ -20,8 +20,10 @@ def parse_args():
 def main():
     args = parse_args()
     if args.model_convert_type == 'tf2onnx':
+        from utils.tf_converter import tf_to_onnx
         tf_to_onnx(args.model)
     elif args.model_convert_type == 'onnx2tf':
+        from utils.tf_converter import onnx_to_tf
         onnx_to_tf(args.model)
     elif args.model_convert_type == 'pytorch2onnx':
         pytorch_to_onnx(args.model)
