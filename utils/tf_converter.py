@@ -5,11 +5,17 @@ import numpy as np
 import onnx2tf
 import tensorflow as tf
 import os
+
+
 # from tf2onnx import convert
 
-def tf_to_onnx(tf_model_path, onnx_file_name):
+def tf_to_onnx(tf_model_path):
     # convert()
-    os.system(f'python3 -m tf2onnx.convert --saved-model {tf_model_path} --output {onnx_file_name}')
+
+    onnx_file_name = os.path.splitext(tf_model_path)[0] + '.onnx'
+    tflitemodelpath = os.path.join(tf_model_path, 'model_float32.tflite')
+    os.system(f'python3 -m tf2onnx.convert --tflite {tflitemodelpath} --output {onnx_file_name}')
+    print('ONNX model saved to {}'.format(onnx_file_name))
     return 1
 
 
@@ -21,6 +27,8 @@ def onnx_to_tf(onnx_file_name):
         copy_onnx_input_output_names_to_tflite=True,
         non_verbose=True,
     )
-
-
     return 1
+
+
+if __name__ == '__main__':
+    onnx_to_tf('/home/zqj/model.onnx')

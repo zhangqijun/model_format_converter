@@ -1,6 +1,6 @@
 torch
 paddlepaddle==2.6.0
-tensorflow
+tensorflow==2.15.0
 tf2onnx
 onnx2tf
 onnx2pytorch
