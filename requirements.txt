@@ -1,5 +1,5 @@
 torch
-paddlepaddle
+paddlepaddle==2.6.0
 tensorflow
 tf2onnx
 onnx2tf
