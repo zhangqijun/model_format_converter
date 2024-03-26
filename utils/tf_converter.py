@@ -1,6 +1,5 @@
 import onnx
 import tensorflow as tf
-import onnxruntime
 import numpy as np
 import onnx2tf
 import tensorflow as tf

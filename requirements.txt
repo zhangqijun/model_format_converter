@@ -1,7 +1,11 @@
 torch
-paddlepaddle==2.6.0
-tensorflow==2.15.0
+tensorflow-cpu==2.15.0
 tf2onnx
-onnx2tf
-onnx2pytorch
+git+https://github.com/PINTO0309/onnx2tf
+onnx2torch
+onnxruntime
+nvidia-pyindex
+onnx_graphsurgeon
+psutil
+sng4onnx
 x2paddle
